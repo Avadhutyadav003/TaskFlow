@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Update Note</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "foreground-light": "#111827",
+                        "foreground-dark": "#f9fafb",
+                        "card-light": "#ffffff",
+                        "card-dark": "#182832",
+                        "subtle-light": "#6b7280",
+                        "subtle-dark": "#9ca3af",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark">
+    <div class="flex flex-col min-h-screen">
+        <header class="sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-10">
+            <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center space-x-4">
+                        <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+                        </svg>
+                        <span class="text-xl font-bold">TaskFlow</span>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="/home">Home</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="/new">Notes</a>
+                        <a aria-current="page" class="text-sm font-medium text-primary" href="/mynotes">My Notes</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            <div class="max-w-3xl mx-auto">
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <h1 class="text-2xl md:text-3xl font-bold text-center">Update Note</h1>
+                    <span class="material-symbols-outlined text-3xl text-subtle-light dark:text-subtle-dark">edit</span>
+                </div>
+                <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg p-6 sm:p-8">
+                    <form class="space-y-6" method="post" action="/update/<%= chat.id%>?_method=PUT" >
+                        <div>
+                            <label class="block text-sm font-medium text-subtle-light dark:text-subtle-dark mb-1"
+                                for="note-title">Note Title</label>
+                            <input
+                                class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition duration-150 ease-in-out sm:text-sm"
+                                id="note-title" name="title" type="text" value="<%=chat.title %>" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-subtle-light dark:text-subtle-dark mb-1"
+                                for="note-content">Note Content</label>
+                            <textarea
+                                class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition duration-150 ease-in-out sm:text-sm"
+                                id="note-content" name="description"
+                                rows="8"><%=chat.description%></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-subtle-light dark:text-subtle-dark mb-1"
+                                for="category">Category</label>
+                            <select
+                                class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition duration-150 ease-in-out sm:text-sm"
+                                id="category" name="categories">
+                                <option value="Personal">Personal</option>
+                                <option value="Work" >Work</option>
+                                <option value="Study">Study</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Travel">Ideas</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col sm:flex-row-reverse sm:items-center sm:justify-start gap-3 pt-4">
+                            <button
+                                class="w-full sm:w-auto inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-colors"
+                                type="submit">
+                                Save Changes
+                            </button>
+                            <button
+                                class="w-full sm:w-auto inline-flex justify-center items-center px-6 py-3 border border-border-light dark:border-border-dark text-base font-medium rounded-lg shadow-sm bg-background-light dark:bg-background-dark hover:bg-border-light dark:hover:bg-border-dark/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-colors"
+                                type="button">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

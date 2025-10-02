@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="flex flex-col min-h-screen">
+        <header
+            class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+            <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                            fill="currentColor"></path>
+                    </svg>
+                    <h1 class="text-xl font-bold text-gray-900 dark:text-white">NoteSphere</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#">Home</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#">Notes</a>
+                    <a class="text-primary font-semibold" href="#">My Notes</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#">Favorites</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-cover bg-center"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrtaDgA6nJQNay632HGHiJud7_rOseVkmSGfAtyyk_HEKx3QZUM8Dus6UAFHS7QLnNgGkZk9nrmS4v3w7DHMHIF5hetx6mw0S3V0ce3fauwD8si125qT4orrV6IRJQR1wImL-6YBCw7MXH9viz0TGXrMW-fUPVSTEWD0Z6po9o_mAnb7Suc0hg6-pb7wRCv3e7kupzjAMliSWowD-XIpBIS_uKe4WW4Hcd9_ns7uXJYLRzFc_Z7BWP44MdMWvI77epkQZvy_MM5zlX");'>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="flex-grow container mx-auto px-6 py-8">
+            <div class="flex items-center gap-3 mb-8">
+                <svg class="h-8 w-8 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+                </svg>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Work Notes</h2>
+            </div>
+            <div class="mb-8 flex flex-col md:flex-row gap-4 md:items-center">
+                <div class="relative flex-grow">
+                    <input
+                        class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 py-3 pl-4 pr-12 rounded-lg leading-tight focus:outline-none focus:bg-white dark:focus:bg-gray-800 focus:border-primary"
+                        placeholder="Search by keyword..." type="text" />
+                    <div class="absolute inset-y-0 right-0 flex items-center">
+                        <button
+                            class="bg-primary text-white h-full px-4 rounded-r-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div
+                    class="bg-white dark:bg-background-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Project Alpha Update</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Summary of the latest
+                            updates on Project Alpha, including milestones achieved and next steps.</p>
+                    </div>
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+                        <span
+                            class="inline-block bg-primary/20 text-primary text-xs font-semibold px-2.5 py-1 rounded-full">Work</span>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">Read More</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Client Meeting Recap</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Key takeaways and
+                            action items from the client meeting held on July 15th.</p>
+                    </div>
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+                        <span
+                            class="inline-block bg-primary/20 text-primary text-xs font-semibold px-2.5 py-1 rounded-full">Work</span>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">Read More</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Team Collaboration Strategies
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Strategies to enhance
+                            team collaboration and communication for improved productivity.</p>
+                    </div>
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+                        <span
+                            class="inline-block bg-primary/20 text-primary text-xs font-semibold px-2.5 py-1 rounded-full">Work</span>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">Read More</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Q3 Planning Session</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Overview of the Q3
+                            planning session, including goals, objectives, and timelines.</p>
+                    </div>
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+                        <span
+                            class="inline-block bg-primary/20 text-primary text-xs font-semibold px-2.5 py-1 rounded-full">Work</span>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">Read More</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">New Initiative Brainstorm</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Brainstorming session
+                            for new initiatives, focusing on innovation and market opportunities.</p>
+                    </div>
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+                        <span
+                            class="inline-block bg-pink-500/20 text-pink-500 text-xs font-semibold px-2.5 py-1 rounded-full">Ideas</span>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">Read More</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Performance Review Notes</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Notes from performance
+                            reviews, including feedback, goals, and development plans.</p>
+                    </div>
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+                        <span
+                            class="inline-block bg-primary/20 text-primary text-xs font-semibold px-2.5 py-1 rounded-full">Work</span>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">Read More</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Spanish Study Guide</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Key vocabulary and
+                            grammar rules for the upcoming Spanish exam.</p>
+                    </div>
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+                        <span
+                            class="inline-block bg-green-500/20 text-green-500 text-xs font-semibold px-2.5 py-1 rounded-full">Study</span>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">Read More</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Trip to Italy Itinerary</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">Daily schedule, flight
+                            details, and hotel bookings for the Italy trip.</p>
+                    </div>
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+                        <span
+                            class="inline-block bg-orange-500/20 text-orange-500 text-xs font-semibold px-2.5 py-1 rounded-full">Travel</span>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-6 py-6 text-center text-gray-600 dark:text-gray-400">
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a class="hover:text-primary dark:hover:text-primary transition-colors" href="#">About</a>
+                    <a class="hover:text-primary dark:hover:text-primary transition-colors" href="#">Contact</a>
+                </div>
+                <p>© 2024 NoteSphere. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

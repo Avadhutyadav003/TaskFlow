@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TaskFlow - Organize Your Thoughts</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": {
+              DEFAULT: "#38bdf8",
+              "light": "#7dd3fc",
+              "dark": "#0ea5e9"
+            },
+            "background-light": "#f8fafc",
+            "background-dark": "#0f172a",
+            "card-light": "#ffffff",
+            "card-dark": "#1e293b",
+            "contrast-light": "#020617",
+            "contrast-dark": "#f8fafc",
+            "subtle-light": "#64748b",
+            "subtle-dark": "#94a3b8",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+          boxShadow: {
+            'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)',
+            'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07)',
+          }
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply bg-background-light dark:bg-background-dark font-display text-contrast-light dark:text-contrast-dark;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex flex-col min-h-screen">
+    <header
+      class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-lg border-b border-slate-200/80 dark:border-slate-800/80">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 text-primary">
+              <svg class="size-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4 2.5C4 2.22386 4.22386 2 4.5 2H19.5C19.7761 2 20 2.22386 20 2.5V3.5C20 3.77614 19.7761 4 19.5 4H4.5C4.22386 4 4 3.77614 4 3.5V2.5Z">
+                </path>
+                <path
+                  d="M4.5 6C4.22386 6 4 6.22386 4 6.5V21.5C4 21.7761 4.22386 22 4.5 22H19.5C19.7761 22 20 21.7761 20 21.5V6.5C20 6.22386 19.7761 6 19.5 6H4.5Z">
+                </path>
+              </svg>
+              <h2 class="text-2xl font-bold">TaskFlow</h2>
+            </div>
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors duration-300"
+              href="/home">Home</a>
+            <a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors duration-300"
+              href="/mynotes">My Notes</a>
+            <a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors duration-300"
+              href="/new">Add Note</a>
+            <a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors duration-300"
+              href="/category">Categories</a>
+          </nav>
+          <div class="flex items-center gap-4">
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="flex-grow">
+      <section class="relative py-32 sm:py-40 flex items-center justify-center text-center">
+        <div class="absolute inset-0 bg-cover bg-center"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCojacyF-UfYYOJSNc_977kK15G1ekeHZKbL7k6E3U2BAAymB2rdlxTz1HI8oace0eezWMVWfmftaXqKwmmWx5KAtCVCvTVMJhN-q1HpcunSrukiGwUD-ymtqqDRJfmUwTZO3WATZQcgIy6hjva-3DBLTxLWaJdOoQE19e5l1DwqXe8B2F0_jCM2XzdoGjcLqNnteoaDAMo1TnygrWRkcEwU4Da2RgTlQWRiW3gsLOVWLQXLl8jmhFW1r-ZB9-SHKR_rATHVm3dJKLS");'>
+        </div>
+        <div class="absolute inset-0 bg-background-dark/80 backdrop-blur-sm"></div>
+        <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 class="text-5xl md:text-7xl font-black text-white tracking-tight">Organize your life</h1>
+          <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-300">A modern, minimalistic dashboard to streamline your
+            workflow and capture your thoughts.</p>
+          <div class="mt-10 flex justify-center">
+            <a class="bg-primary hover:bg-primary-dark text-white font-bold text-base py-3 px-6 inline-flex items-center gap-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/30"
+              href="/new">
+              <span class="material-symbols-outlined">arrow_forward</span>
+              <span>Create A New Note</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <section>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-12 text-center">Quick Access</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-card-light dark:bg-card-dark rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 p-8 flex flex-col items-center text-center">
+              <div class="w-40 h-40 bg-center bg-cover rounded-lg mb-6"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATsiYeaOWDgKfSFfxnwcNH59SfmWDKh-h4x_xVu1CB_wZ6ZEam8AnnuUHXA_oqstPtGIrzWHJo7kuLaTOlVN2SSTt4Bq42PVO1GtrHj0zVQJF4vWwGpIIuhESkBgHyxgdSYsHNYBZ9v91U63yuUBjkrU7vnMdz8wx7sZBqAxdOEv7HGL07jvqNAZFNb7gayxHnqzcSRPfJt4sw7wuVkOrR2LNTc0ACuzvsvBTFFsE33hwKO158lG4M7qRWbci1idUtsI1na69gGHWz");'>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-xl font-bold">My Notes</h3>
+                <p class="text-sm text-subtle-light dark:text-subtle-dark">View and manage all your existing notes.</p>
+              </div>
+              <a class="mt-6 inline-flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors duration-300 transform hover:-translate-y-1"
+                href="/mynotes">Go to Notes</a>
+            </div>
+            <div
+              class="bg-card-light dark:bg-card-dark rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 p-8 flex flex-col items-center text-center">
+              <div class="w-40 h-40 bg-center bg-cover rounded-lg mb-6"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCMh_bRYvOR7Amv82l7O9_nLuD3FPBx5gUkH5Mhz4XwJpJWZZXGpCw3SdDLl_V6NsqDuPKM7suOkc3VqeRPgi3msfH40XOESuxgHRFdvmAxupMver0zWJj8xMi3QdjHFnRJtJZ_e10G80nhxoxCVt1SjSegHb-AhsDkGjZK0KjLm7mxXG-3U8FxFYLTsNaKLxBTR14NTk9GRHnwSSBJYfRyyPnjcjy5GpTLaFfuPLwY3NuDIBXeUdpY3xCz6QozfaQupPwyGS-ykpum");'>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-xl font-bold">Add Note</h3>
+                <p class="text-sm text-subtle-light dark:text-subtle-dark">Quickly capture a new idea or task.</p>
+              </div>
+              <a class="mt-6 inline-flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors duration-300 transform hover:-translate-y-1"
+                href="/new">Add Note</a>
+            </div>
+            <div
+              class="bg-card-light dark:bg-card-dark rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 p-8 flex flex-col items-center text-center">
+              <div class="w-40 h-40 bg-center bg-cover rounded-lg mb-6"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAO-sWLPFyRxEEoTbY5ZYKeb-jbpMPApIN3pxt2XEwbUShHOFerTXgW513sWNeSyVkdH6S_eeyMniZuMjrI7aMNQb-bIqWl5FzvzhEi5-vsNK1kl3BXp2h5t7VFSB_4z6b80EDoCcJ6ZmNCdYnUzAG8VEMb6kWFyLsPF2rBvCt2NhlrQ-yJluzpe3v8FUGDvXXYD1K0ogWZTBocPUH-KXg06iBABh9wLdGcdWnK35SBFU4A4S7nNzZA0vdxJQtLPneaMib9U-V4v1Wa");'>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-xl font-bold">Categories</h3>
+                <p class="text-sm text-subtle-light dark:text-subtle-dark">Organize and find notes with ease.</p>
+              </div>
+              <a class="mt-6 inline-flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors duration-300 transform hover:-translate-y-1"
+                href="/category">View Categories</a>
+            </div>
+          </div>
+        </section>
+        <section class="mt-24">
+          <div class="flex justify-between items-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Recent Notes</h2>
+            <a class="flex items-center gap-2 min-w-[84px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold hover:bg-primary-dark transition-colors duration-300 transform hover:-translate-y-1"
+              href="/mynotes">
+              <span class="truncate">View All</span>
+            </a>
+          </div>
+          <!-- Recent data -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <% for(let i = 0;i<4;i++){  %>
+  <div
+              class="bg-card-light dark:bg-card-dark rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 group flex flex-col">
+              <div class="p-6 flex-grow">
+                <span class="text-xs font-semibold bg-primary/20 text-primary py-1 px-3 rounded-full"><%=chat[i].categories %></span>
+                <h3
+                  class="mt-4 text-lg font-bold text-contrast-light dark:text-contrast-dark group-hover:text-primary transition-colors">
+                 <%=chat[i].title  %></h3>
+                <p class="mt-2 text-sm text-subtle-light dark:text-subtle-dark flex-grow"><%= chat[i].description %>...</p>
+              </div>
+              <div class="p-6 pt-0">
+                <a class="text-sm font-semibold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                  href="/read/<%= chat[i].id %>">Read More <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+              </div>
+            </div>
+<%  }%>     
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="bg-card-light dark:bg-card-dark border-t border-slate-200/80 dark:border-slate-800/80">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+          <p class="text-sm text-subtle-light dark:text-subtle-dark">© 2025 TaskFlow. All rights reserved.</p>
+          <div class="flex items-center gap-6">
+            <a class="text-sm text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors"
+              href="#">About</a>
+            <a class="text-sm text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors"
+              href="#">Contact</a>
+            <a class="text-sm text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors"
+              href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>
+
+
