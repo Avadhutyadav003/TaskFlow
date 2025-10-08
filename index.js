@@ -18,7 +18,7 @@ main()
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/todo');
 }
-app.get("/home",async(req,res)=>{
+app.get("/",async(req,res)=>{
    let chat =await Chat.find();
     res.render("index.ejs",{chat});
 })
@@ -89,3 +89,4 @@ app.listen(8080,()=>{
     console.log("server is running")
 
 })
+
