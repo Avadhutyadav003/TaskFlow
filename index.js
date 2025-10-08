@@ -73,12 +73,6 @@ res.redirect("/home")
 
 
 
-app.get("/", (req, res) => {
-  res.send("root is working")
-})
-
-
-
 
 
 
@@ -93,4 +87,5 @@ app.get("/", (req, res) => {
 
 app.listen(8080,()=>{
     console.log("server is running")
+
 })
